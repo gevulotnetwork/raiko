@@ -13,13 +13,21 @@
           pkgs = import nixpkgs {
             inherit system;
           };
+
+          riscvPkgs = import nixpkgs {
+              localSystem = "${system}";
+              crossSystem = {
+                  config = "riscv32-unknown-linux-gnu";
+                  abi = "ilp32";
+              };
+          };
         in
         {
-          devShells.default = let p = pkgs; in
-            pkgs.mkShell {
+          devShells.default = pkgs.mkShell {
               buildInputs =
               [
-                p.rustup
+                pkgs.rustup
+                riscvPkgs.buildPackages.gcc
               ];
             };
         });
