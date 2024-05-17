@@ -1,0 +1,5 @@
+{
+  "name": "raiko-dev",
+  "image": "ubuntu:24.04",
+  "dockerfile": "Dockerfile"
+}
