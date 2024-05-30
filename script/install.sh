@@ -56,7 +56,7 @@ if [ -z "$1" ] || [ "$1" == "sp1" ]; then
 		PROFILE=$HOME/.bashrc
 		echo ${PROFILE}
 		source ${PROFILE}
-		sp1up
+		${HOME}/.sp1/bin/sp1up
 	else
 		echo "/home/runner/.config/.sp1/bin" >> $GITHUB_PATH
 		/home/runner/.config/.sp1/bin/sp1up

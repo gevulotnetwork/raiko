@@ -1,0 +1,2 @@
+docker buildx build . -t raiko:dev --load
+docker run --name raiko-dev --hostname raiko-dev -it -v ${HOME}/projects/Gevulot/raiko:/raiko raiko:dev
