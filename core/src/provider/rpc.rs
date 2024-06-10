@@ -73,7 +73,7 @@ impl BlockDataProvider for RpcBlockDataProvider {
                 blocks.push(
                     request
                         .await
-                        .map_err(|_| RaikoError::RPC("Error collecting request data".to_owned()))?,
+                        .map_err(|e| RaikoError::RPC(format!("Error collecting request data: {e}")))?,
                 );
             }
 
