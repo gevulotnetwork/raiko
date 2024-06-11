@@ -62,6 +62,7 @@ impl BlockDataProvider for RpcBlockDataProvider {
                 ));
             }
 
+            println!("{:?}", batch);
             batch
                 .send()
                 .await
@@ -73,7 +74,7 @@ impl BlockDataProvider for RpcBlockDataProvider {
                 blocks.push(
                     request
                         .await
-                        .map_err(|e| RaikoError::RPC(format!("Error collecting request data: {e}, {request:?}")))?,
+                        .map_err(|e| RaikoError::RPC(format!("Error collecting request data: {e}")))?,
                 );
             }
 
